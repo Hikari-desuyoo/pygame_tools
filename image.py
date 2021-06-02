@@ -1,5 +1,4 @@
 import pygame
-arial_fp = "res/others/arial.ttf"
 #class for wrapping sprite properties    
 class Image():
     def __init__(self, sprite_ref, pos=[0,0]):
@@ -142,35 +141,6 @@ class Text():
         else:
             return text_surface
 
-hinwil_fp = "res/others/hinwil.ttf"
-class Hinwil(Text):
-    def __init__(self, size = 10, color = (255,255,255)):
-        Text.__init__(self, size, hinwil_fp, color)
-
-heart_fp = "res/others/heart.ttf"
-class Heart(Text):
-    def __init__(self, size = 10, color = (255,255,255)):
-        Text.__init__(self, size, heart_fp, color)
-
-class Outlined_arial():
-    def __init__(self, size = 10, color = (255,255,255)):            
-        font_fp = arial_fp
-        self.color = color
-        self.text_obj = Text(size, font_fp)
-        self.in_text_obj = Text(size, font_fp, color=color)
-        
-    def get_text(self, text):        
-        surface_size = list(self.text_obj.font_obj.size(text))
-        surface_size[0] += 2
-        surface_size[1] += 2
-        
-        text_surface = pygame.Surface(surface_size, pygame.SRCALPHA)
-        for pos in [(0,1),(2,1),(1,0),(1,2)]:
-            self.text_obj.get_text(text, pos, surface = text_surface)
-            
-        self.in_text_obj.get_text(text, (1,1), surface = text_surface)
-
-        return text_surface
 
 
 
